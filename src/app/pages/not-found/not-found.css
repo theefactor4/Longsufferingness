@@ -1,0 +1,19 @@
+.breadcrumb-wrapper {
+    display: flex; /* Enables flexbox */
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    height: 100vh; /* Makes the container full height */
+    text-align: center; /* Ensures text is centered */
+    background-color: #f8f9fa; /* Optional: Add a background color */
+}
+
+.breadcrumb-wrapper app-breadcrumb-one {
+    font-size: 2rem; /* Adjust font size for larger text */
+    padding: 20px; /* Adds spacing */
+    max-width: 800px; /* Optional: Limit the width of the content */
+}
+
+.breadcrumb-wrapper h1, .breadcrumb-wrapper h2 {
+    margin: 0;
+    padding: 10px 0;
+}
