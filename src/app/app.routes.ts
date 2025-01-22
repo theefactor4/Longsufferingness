@@ -25,7 +25,12 @@ import { CheckoutComponent } from './pages/checkout/checkout.component';
 export const routes: Routes = [
     {path:"",redirectTo:"/home/home-one",pathMatch:"full"},
     {path:'home',children:[
+        {path:'home-one',component:HomeOneComponent,title:"Home One - Mykd"},
+        {path:'home-two',component:HomeTwoComponent,title:"Home Two - Mykd"},
+        {path:'home-three',component:HomeThreeComponent,title:"Home Three - Mykd"},
+        {path:'home-four',component:HomeFourComponent,title:"Home Four - Mykd"},
+        {path:'home-five',component:HomeFiveComponent,title:"Home Five - Mykd"},
         
     ]},
-    
-];
+    {path:'tournament',component:TournamentComponent,title:"Tournament - Mykd"},
+    {path:'tournament-details',component:TournamentDetailsComponent,title:"Tournament Single - Mykd"},
