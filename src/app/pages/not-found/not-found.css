@@ -8,7 +8,7 @@
 }
 
 .breadcrumb-wrapper app-breadcrumb-one {
-    font-size: 8rem; /* Adjust font size for larger text */
+    font-size: 28rem; /* Adjust font size for larger text */
     padding: 20px; /* Adds spacing */
     max-width: 800px; /* Optional: Limit the width of the content */
 }
