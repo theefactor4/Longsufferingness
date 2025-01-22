@@ -1,0 +1,93 @@
+<section class="about__area section-pt-130 section-pb-130">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-7 col-md-10">
+          <div class="section__title text-center mb-60">
+            <app-text-animation [title]="'know about us'"></app-text-animation>
+            <h3 class="title">Top Rated Streamers</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-xl-10">
+          <div class="about__tab-wrap">
+            <div class="about__buttons">
+              <a routerLink="/shop" class="tg-btn-2">Buy Hero <app-btn-bg-two/></a>
+              <a routerLink="/shop" class="tg-btn-2 -secondary">Buy NFTs <app-btn-bg-three/></a>
+            </div>
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+              <li
+                class="nav-item"
+                *ngFor="let nav of navData"
+                role="presentation"
+              >
+                <button
+                  class="nav-link"
+                  [class.active]="nav.isActive"
+                  [id]="'about' + nav.id + '-tab'"
+                  [attr.data-bs-toggle]="'tab'"
+                  [attr.data-bs-target]="'#about' + nav.id"
+                  type="button"
+                  role="tab"
+                  [attr.aria-controls]="'about' + nav.id"
+                  [attr.aria-selected]="nav.isActive ? 'true' : 'false'"
+                  (click)="playSound('/assets/audio/tab.mp3')"
+                >
+                  <span class="img-shape"></span>
+                  <img [src]="nav.img" alt="img" />
+                </button>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="myTabContent">
+        <div
+          class="tab-pane"
+          *ngFor="let tab of tabItemData"
+          [class.show]="tab.isActive"
+          [class.active]="tab.isActive"
+          [id]="'about' + tab.id"
+          role="tabpanel"
+          [attr.aria-labelledby]="'about' + tab.id + '-tab'"
+        >
+          <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-10">
+              <div class="about__img">
+                <img [src]="tab.img" alt="img" />
+              </div>
+            </div>
+            <div class="col-xl-7 col-lg-10">
+              <div class="about__flex-wrap">
+                <div class="about__content-wrap">
+                  <div class="about__content">
+                    <h4 class="title">{{ tab.title }}</h4>
+                    <span class="rate">Rate {{ tab.rate }}</span>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis
+                      elementum sollicitudin.
+                    </p>
+                  </div>
+                  <div class="about__content-list">
+                    <ul class="list-wrap">
+                        <li><img src="/assets/img/icons/features_icon01.png" alt="img"> Chichi Dragon Ball</li>
+                        <li><img src="/assets/img/icons/features_icon02.png" alt="img"> Space Babe Night</li>
+                        <li><img src="/assets/img/icons/features_icon03.png" alt="img"> Dragon Ball</li>
+                    </ul>
+                </div>
+                </div>
+                <div class="about__btn-wrap">
+                  <ul class="list-wrap">
+                    <li><a routerLink="/shop">Dragon Ball</a></li>
+                    <li><a routerLink="/shop">NFT Market</a></li>
+                    <li><a routerLink="/contact">Support</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

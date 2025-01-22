@@ -1,0 +1,54 @@
+<section class="upcoming-match__area3 section-pt-170 section-pb-120 bg-img-cover bg-img-center" style="background-image: url(/assets/img/bg/match_bg3.png);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section__title text-center mb-60 title-shape-none">
+                    <span class="sub-title2">Upcoming Schedule</span>
+                    <h3 class="title2">My STREAM <span class="text-theme d-inline-block position-relative"><img class="section-line" src="/assets/img/others/section-line.png" alt="img">TIMETABLE</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-5">
+            <div *ngFor="let item of upcomingMatchData" class="col-12">
+                <div class="upcoming-match__item2">
+                    <div class="upcoming-match__wrap">
+                        <div class="upcoming-match__team team-left">
+                            <a routerLink="/tournament-details">
+                                <img [src]="item.leftTeamLogo" alt="img">
+                            </a>
+                        </div>
+                        <div class="upcoming-match__content">
+                            <div class="team--info info-left">
+                                <span class="social-wrap">
+                                    <span>Stream On: </span>
+                                    <a *ngFor="let social of item.streamOn" href="#">
+                                        <i class="fab fa-{{ social }}"></i>
+                                    </a>
+                                </span>
+                                <h3 class="name"><a routerLink="/tournament-details">{{ item.leftTeamName }}</a></h3>
+                            </div>
+                            <div class="upcoming-match__versus">
+                                <h2 class="versus">V/S</h2>
+                            </div>
+                            <div class="team--info info-right">
+                                <span class="game-name">
+                                    {{ item.gameName }}
+                                </span>
+                                <h3 class="name"><a routerLink="/tournament-details">{{ item.rightTeamName }}</a></h3>
+                            </div>
+                        </div>
+                        <div class="upcoming-match__team team-right">
+                            <a routerLink="/tournament-details"><img [src]="item.rightTeamLogo" alt="img"></a>
+                        </div>
+                    </div>
+                    <div class="upcoming-match__date">
+                        <span>{{ item.time }}</span>
+                    </div>
+                    <div class="upcoming-match__day">
+                        <span>{{ item.day }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

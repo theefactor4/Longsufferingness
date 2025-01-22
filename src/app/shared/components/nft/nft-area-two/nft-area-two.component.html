@@ -1,0 +1,32 @@
+<section class="nft-item__area4 section-pt-120">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section__title text-center mb-60 title-shape-none">
+                    <h6 class="sub-title2">Our Recent Games</h6>
+                    <h3 class="title2">popular Launched Games
+                    </h3>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-4 justify-content-center">
+            <div *ngFor="let item of nftItems" class="col-xl-4 col-md-6">
+                <div class="nft-card">
+                    <div class="nft-card-thumb">
+                        <a routerLink="/shop">
+                            <img [src]="item.imgSrc" alt="img">
+                        </a>
+                    </div>
+                    <div class="nft-card-content">
+                        <span class="subtitle">{{item.subtitle}}</span>
+                        <h4 class="title"><a routerLink="shop">{{item.title}}</a></h4>
+                        <div class="btn-wrap">
+                            <a href="#"><img src="/assets/img/icons/play-slore-btn.png" alt="img"></a>
+                            <a href="#"><img src="/assets/img/icons/apple-slore-btn.png" alt="img"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

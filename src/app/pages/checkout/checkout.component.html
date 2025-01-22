@@ -1,0 +1,217 @@
+<div>
+   <!-- header area start -->
+   <app-header-one />
+   <!-- header area end -->
+
+   <main class="main--area">
+
+      <!-- breadcrumb area start -->
+      <app-breadcrumb-one title="Checkout" subtitle="Checkout" bg="/assets/img/bg/breadcrumb_bg01.jpg"
+         brd_img="/assets/img/others/breadcrumb_img02.png" />
+      <!-- breadcrumb area end -->
+
+      <!-- checkout-area start-->
+      <div class="checkout__area section-pt-120 section-pb-120">
+         <div class="container">
+            <div *ngIf="cartService.getCartProducts().length === 0;else checkoutBlock" class="text-center pt-50">
+               <h3 class="py-2">No items found in cart to checkout</h3>
+               <a routerLink="/shop" class="btn">
+                  Return to shop
+               </a>
+            </div>
+            <ng-template #checkoutBlock>
+               <div class="row">
+                  <div class="col-12">
+                     <div class="coupon__code-wrap">
+                        <div class="coupon__code-info">
+                           <span><i class="far fa-bookmark"></i> Have a coupon?</span>
+                           <a (click)="handleOpenCoupon()" href="javascript:void(0)" id="another-element">
+                              Click here to enter your code
+                           </a>
+                        </div>
+                        <form *ngIf="isOpenCoupon" (ngSubmit)="handleCouponSubmit()" class="coupon__code-form">
+                           <p>If you have a coupon code, please apply it below.</p>
+                           <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode" name="couponCode">
+                           <button type="submit" class="btn">Apply coupon</button>
+                        </form>
+                     </div>
+                  </div>
+
+                  <!-- checkout-form start -->
+                  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+                     <div class="row">
+                        <div class="col-lg-7">
+                           <div class="customer__form-wrap">
+                              <span class="title">Billing Details</span>
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <!-- error msg start -->
+                                    <span *ngIf="firstName?.hasError('required') && (firstName?.touched ||formSubmitted)" class="text-danger">
+                                       First Name is required
+                                    </span>
+                                    <!-- error msg end -->
+                                    <div class="form-grp">
+                                       <label for="first-name">First name *</label>
+                                       <input type="text" id="first-name" placeholder="First name" formControlName="firstName">
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <!-- error msg start -->
+                                    <span *ngIf="lastName?.hasError('required') && (lastName?.touched ||formSubmitted)" class="text-danger">
+                                       Last Name is required
+                                    </span>
+                                    <!-- error msg end -->
+                                    <div class="form-grp">
+                                       <label for="last-name">Last name *</label>
+                                       <input type="text" id="last-name" placeholder="Last name" formControlName="lastName">
+                                    </div>
+                                 </div>
+                              </div>
+                              <div class="form-grp">
+                                 <label for="company-name">Company name (optional)</label>
+                                 <input type="text" id="company-name" placeholder="Company name" formControlName="company">
+                              </div>
+                              <div class="form-grp select-grp">
+                                 <!-- error msg start -->
+                                 <div *ngIf="country?.invalid && country?.touched" class="text-danger">
+                                    Country is required.
+                                 </div>
+                                 <!-- error msg end -->
+                                 <label for="country-name">Country / Region *</label>
+                                 <select id="country-name" name="country-name" class="country-name" formControlName="country">
+                                    <option value="uk">United Kingdom (UK)</option>
+                                    <option value="us">United States (US)</option>
+                                    <option value="turkey">Turkey</option>
+                                    <option value="arabia">Saudi Arabia</option>
+                                    <option value="portugal">Portugal</option>
+                                 </select>
+                              </div>
+                              <div class="form-grp">
+                                 <!-- error msg start -->
+                                 <span *ngIf="address?.hasError('required') && (address?.touched ||formSubmitted)" class="text-danger">
+                                    Address is required
+                                 </span>
+                                 <!-- error msg end -->
+                                 <label for="street-address">Street address *</label>
+                                 <input type="text" id="street-address" placeholder="House number and street name" formControlName="address">
+                              </div>
+
+                              <div class="form-grp">
+                                 <input type="text" id="street-address-two" placeholder="Apartment, unit, etc. (optional)">
+                              </div>
+
+                              <!-- error msg start -->
+                              <span *ngIf="city?.hasError('required') && (city?.touched ||formSubmitted)"
+                                 class="text-danger">
+                                 City is required
+                              </span>
+                              <!-- error msg end -->
+                              <div class="form-grp">
+                                 <label for="town-name">Town / City *</label>
+                                 <input type="text" id="town-name" formControlName="city">
+                              </div>
+
+                              <div class="form-grp select-grp">
+                                 <!-- error msg start -->
+                                 <span *ngIf="district?.hasError('required') && (district?.touched ||formSubmitted)" class="text-danger">
+                                    State is required
+                                 </span>
+                                 <!-- error msg end -->
+                                 <label for="district-name">District *</label>
+                                 <select id="district-name" name="district-name" class="district-name" formControlName="district">
+                                    <option value="alabama">Alabama</option>
+                                    <option value="alaska">Alaska</option>
+                                    <option value="arizona">Arizona</option>
+                                    <option value="california">California</option>
+                                    <option value="new-york">New York</option>
+                                 </select>
+                              </div>
+
+                              <!-- error msg start -->
+                              <span *ngIf="zipCode?.hasError('required') && (zipCode?.touched ||formSubmitted)"
+                                 class="text-danger">
+                                 Zip Code is required
+                              </span>
+                              <!-- error msg end -->
+                              <div class="form-grp">
+                                 <label for="zip-code">ZIP Code *</label>
+                                 <input type="text" id="zip-code" formControlName="zipCode">
+                              </div>
+                              <div class="row">
+                                 <div class="col-md-6">
+                                    <!-- error msg start -->
+                                    <span *ngIf="phone?.hasError('required') && (phone?.touched ||formSubmitted)"  class="text-danger">
+                                       Phone is required
+                                    </span>
+                                    <!-- error msg end -->
+                                    <div class="form-grp">
+                                       <label for="phone">Phone *</label>
+                                       <input type="number" id="phone" formControlName="phone">
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <!-- error msg start -->
+                                    <span *ngIf="email?.hasError('required') && (email?.touched || formSubmitted)" class="text-danger">
+                                       Email is required
+                                    </span>
+
+                                    <span *ngIf="email?.hasError('email') && email?.dirty" class="text-danger">
+                                       Please enter a valid email address
+                                    </span>
+                                    <!-- error msg end -->
+                                    <div class="form-grp">
+                                       <label for="email">Email address *</label>
+                                       <input type="email" id="email" formControlName="email">
+                                    </div>
+                                 </div>
+                              </div>
+                              <span class="title title-two">Additional Information</span>
+                              <div class="form-grp">
+                                 <label for="note">Order notes (optional)</label>
+                                 <textarea id="note"
+                                    placeholder="Notes about your order, e.g. special notes for delivery."
+                                    formControlName="orderNote"></textarea>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-5">
+                           <div class="order__info-wrap">
+                              <h2 class="title">YOUR ORDER</h2>
+                              <ul class="list-wrap">
+                                 <li class="title">Product <span>Subtotal</span></li>
+
+                                 <li *ngFor="let item of cartService.getCartProducts()">
+                                    {{item.title}} × {{item.orderQuantity}}
+                                    <span>${{item.orderQuantity! * item.price}}</span>
+                                 </li>
+                                 <li>Subtotal
+                                    <span>${{(cartService.totalPriceQuantity().total).toFixed(2)}}</span>
+                                 </li>
+                                 <li>Total
+                                    <span>${{(cartService.totalPriceQuantity().total).toFixed(2)}}</span>
+                                 </li>
+                              </ul>
+                              <p>Sorry, it seems that there are no available payment methods for your state.
+                                 Please contact us if you require assistance or wish to make alternate
+                                 arrangements.</p>
+                              <p>Your personal data will be used to process your order, support your
+                                 experience throughout this website, and for other purposes described in our 
+                                 <a href="#">privacy policy.</a></p>
+                              <button class="btn">Place order</button>
+                           </div>
+                        </div>
+                     </div>
+                  </form>
+                  <!-- checkout-form-end -->
+               </div>
+            </ng-template>
+         </div>
+      </div>
+      <!-- checkout-area-end -->
+
+   </main>
+
+   <!-- footer area start -->
+   <app-footer-one />
+   <!-- footer area end -->
+</div>

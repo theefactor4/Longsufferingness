@@ -1,0 +1,27 @@
+<div class="shop__item">
+    <div class="shop__item-thumb">
+        <a [routerLink]="['/shop-details/', item.id]">
+            <img [src]="item.img" alt="img">
+        </a>
+        <a *ngIf="!isItemInCart(item)" (click)="addToCart(item)" href="javascript:void(0)" class="wishlist-button">
+             <i class="fas fa-shopping-basket"></i>
+        </a>
+        <a *ngIf="isItemInCart(item)" routerLink="/cart" class="wishlist-button active">
+             <i class="fas fa-shopping-basket"></i>
+        </a>
+    </div>
+    <div class="shop__item-line"></div>
+    <div class="shop__item-content">
+        <div class="shop__item-content-top">
+            <h4 class="title">
+                <a [routerLink]="['/shop-details/', item.id]">
+                    {{item.title}}
+                </a>
+            </h4>
+            <div class="shop__item-price">${{item.price}}</div>
+        </div>
+        <div class="shop__item-cat">
+            <a [routerLink]="['/shop-details/', item.id]">{{item.category}}</a>
+        </div>
+    </div>
+</div>

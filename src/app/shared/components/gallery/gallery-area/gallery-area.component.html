@@ -1,0 +1,29 @@
+<section class="gallery__area fix section-pb-130">
+    <div class="gallery__slider">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-xl-9 col-lg-10 col-md-11">
+                    <div class="swiper-container gallery-active p-relative">
+                        <div class="swiper-wrapper">
+                            <div *ngFor="let item of gallery_data; let i = index" class="swiper-slide">
+                                <div class="gallery__item">
+                                    <div class="gallery__thumb">
+                                        <a (click)="lightbox.open(i)" href="javascript:void(0)" class="popup-image" title="PUBG Tournament">
+                                            <img [src]="item.img" alt="img">
+                                        </a>
+                                    </div>
+                                    <div class="gallery__content">
+                                        <h3 class="title">{{ item.title }}</h3>
+                                        <span class="rate">rate {{ item.rate }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- scrollbar -->
+                        <div class="swiper-scrollbar"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

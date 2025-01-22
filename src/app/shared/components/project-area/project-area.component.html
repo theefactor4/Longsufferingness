@@ -1,0 +1,27 @@
+<section class="project-area project-bg section-pt-120 section-pb-140">
+    <div class="container custom-container">
+        <div class="project__wrapper">
+            <div class="section__title text-start">
+                <h3 class="title">PROJECTS MYKD</h3>
+                <span class="sub-title tg__animate-text">our LATEST gallery</span>
+            </div>
+            <div class="swiper-container project-active p-relative">
+                <div class="swiper-wrapper">
+                    <div *ngFor="let imgSrc of project_images; let i = index" class="swiper-slide">
+                        <div class="project__item">
+                            <a (click)="lightbox.open(i)" href="javascript:void(0)" class="popup-image">
+                                <img [src]="imgSrc" alt="img">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div (click)="swiperInstance?.slidePrev()" class="slider-button-prev pointer">
+                <i class="flaticon-right-arrow"></i>
+                <i class="flaticon-right-arrow"></i>
+            </div>
+        </div>
+    </div>
+    <!-- scrollbar -->
+    <div class="swiper-scrollbar swiper-scrollbar-project"></div>
+</section>

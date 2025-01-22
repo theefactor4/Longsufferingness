@@ -1,0 +1,39 @@
+<section class="deal__area fix section-pb-120 section-pt-120" style="background-image: url(/assets/img/bg/deal-area_bg.png);">
+  <div class="container custom-container4">
+      <div class="row justify-content-center">
+          <div class="col-12">
+              <div class="section__title mb-60 text-center title-shape-none">
+                  <h3 class="title">Deal Of The Day</h3>
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid">
+      <div class="swiper-container deal-active swiper-container-horizontal">
+          <div class="swiper-wrapper">
+              <div *ngFor="let item of shopDealData" class="swiper-slide">
+                  <div class="shop__item2">
+                      <div class="shop__item-thumb">
+                          <a routerLink="/shop">
+                            <img [src]="item.img" alt="img">
+                          </a>
+                      </div>
+                      <div class="shop__item-content">
+                          <div class="shop__item-rating"><i class="fas fa-star"></i>
+                            {{item.rating}}
+                          </div>
+                          <h4 class="title">
+                            <a routerLink="/shop">{{item.title}}</a>
+                          </h4>
+                          <div class="shop__item-price">${{item.price}}</div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div class="container custom-container4">
+              <!-- scrollbar -->
+              <div class="swiper-scrollbar"></div>
+          </div>
+      </div>
+  </div>
+</section>

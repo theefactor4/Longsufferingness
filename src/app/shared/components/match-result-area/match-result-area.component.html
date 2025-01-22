@@ -1,0 +1,51 @@
+<section class="match__result-area">
+    <div class="match__result-bg" [style.background-image]="'url(/assets/img/bg/result_bg.png)'"></div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10">
+                <div class="section__title text-center mb-55">
+                    <app-text-animation [title]="'LATEST RESULTS FOR'"/>
+                    <h3 class="title">EXPERIENCE JUST FOR</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h4 class="match__winner-title">{{ matchResultData.title }}</h4>
+            </div>
+        </div>
+        <div class="row match__result-wrapper justify-content-center">
+            <div class="col-xl-5 col-sm-6" *ngFor="let winner of matchResultData.winners">
+                <div class="match__winner-wrap">
+                    <div class="match__winner-info">
+                        <h4 class="name">{{ winner.name }}</h4>
+                        <span class="price-amount">${{ winner.price }}</span>
+                    </div>
+                    <div class="match__winner-img tg-svg">
+                        <div class="team-logo-img">
+                            <a routerLink="/team-details/1">
+                                <img [src]="winner.image" alt="Team Logo">
+                            </a>
+                        </div>
+                        <app-svg-icon-anim [id]="winner.svgId" [icon]="winner.svgIcon"/>
+                        <h3 class="match__winner-place">{{ winner.place }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="grand__final">
+                    <h6 class="grand__final-date">{{ matchResultData.finalDate }}</h6>
+                    <span class="grand__final-place">{{ matchResultData.finalPlace }}</span>
+                    <div class="grand__final-button d-flex">
+                        <a routerLink="/tournament-details" class="tg-btn-3 tg-svg mx-auto">
+                            <app-svg-icon-anim [id]="'svg-5'" [icon]="'/assets/img/icons/shape.svg'"/>
+                            <span>read more</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

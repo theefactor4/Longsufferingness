@@ -1,0 +1,22 @@
+<section [ngClass]="top_cls">
+    <div class="container">
+        <div class="row" *ngIf="!hideTitle">
+            <div class="col-12">
+                <div class="brand__title text-center">
+                    <h2 class="title">they trust us</h2>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-container brand-active">
+            <div class="swiper-wrapper">
+                <div *ngFor="let b of brand_images; let i = index" class="swiper-slide">
+                    <div class="brand__item" (mouseenter)="handleHoverIndex(i)" (mouseleave)="handleHoverIndex(null)" [style.opacity]="hoveredIndex === null || hoveredIndex === i ? 1 : 0.3" [style.transition]="'opacity 0.3s'">
+                        <a href="#" class="brand__link">
+                            <img [src]="b" alt="brand">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

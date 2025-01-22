@@ -1,0 +1,47 @@
+<div [class.mobile-menu-visible]="openMobileOffCanvas">
+    <div class="tgmobile__menu">
+      <nav class="tgmobile__menu-box">
+        <!-- Close button -->
+        <div class="close-btn" (click)="handleCloseOffCanvas('/assets/audio/remove.wav')">
+          <i class="flaticon-swords-in-cross-arrangement"></i>
+        </div>
+  
+        <!-- Logo -->
+        <div class="nav-logo">
+          <a routerLink="/home/home-one">
+            <img src="/assets/img/logo/logo.png" alt="Logo" />
+          </a>
+        </div>
+  
+        <!-- Search bar -->
+        <div class="tgmobile__search">
+          <form action="#">
+            <input type="text" placeholder="Search here..." />
+            <button type="submit">
+              <i class="flaticon-loupe"></i>
+            </button>
+          </form>
+        </div>
+  
+        <!-- Mobile menu -->
+        <div class="tgmobile__menu-outer">
+          <app-mobile-menus></app-mobile-menus>
+        </div>
+  
+        <!-- Social links -->
+        <div class="social-links">
+          <ul class="list-wrap">
+            <li *ngFor="let s of socialData; let i = index" [attr.key]="i">
+              <a [href]="s.link" target="_blank">
+                <i [class]="s.icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  
+    <!-- Backdrop -->
+    <div class="tgmobile__menu-backdrop" (click)="setOpenMobileOffCanvas.emit(false)"></div>
+  </div>
+  

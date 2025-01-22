@@ -1,0 +1,61 @@
+<section class="shop-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-3 col-lg-4 col-md-11 order-2 order-lg-0">
+                <app-shop-sidebar/>
+            </div>
+            <div class="col-xl-9 col-lg-8 col-md-11">
+
+                <div class="shop__top-wrap">
+                    <div class="row align-items-center">
+                        <div class="col-lg-8 col-sm-6">
+                            <div class="shop__showing-result">
+                                <p>Showing 1 - {{ products.length }} of {{ paginate.totalItems }} results</p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6">
+                            <div class="shop__ordering">
+                                <select (change)="changeSorting($event)" name="orderby" class="orderby">
+                                    <option value="asc">Default sorting</option>
+                                    <option value="desc">Sort by Descending</option>
+                                    <option value="latest">Sort by Latest</option>
+                                    <option value="low">Low to High</option>
+                                    <option value="high">High to Low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- if no products -->
+                <div *ngIf="products.length === 0; else elseBlock" class="cartmini__empty text-center">
+                    <img src="/assets/img/products/empty-cart.png" alt="empty-cart-img" />
+                    <h4 class="mt-10">Sorry! Couldn't find the product you were looking For!!!</h4>
+                    <p>Please check if you have misspelt something or try searching with other words.</p>
+                    <a routerLink="/shop" class="tg-btn-3 tg-svg mx-auto" style="display: inline-block;">
+                        <app-svg-icon-anim [id]="'svg-1'" [icon]="'/assets/img/icons/shape.svg'"></app-svg-icon-anim>
+                        <span>Continue Shopping</span>
+                    </a>
+                </div>
+                <!-- if no products -->
+
+                <ng-template #elseBlock>
+                <div class="row row-cols-xl-3 row-cols-lg-2 row-cols-md-2 row-cols-sm-2 row-cols-1">
+                    <!-- products -->
+                        <div *ngFor="let item of products" class="col">
+                            <app-shop-item [item]="item"/>
+                        </div>
+                    <!-- products -->
+                </div>
+                </ng-template>
+
+                <!-- pagination -->
+                <div class="pagination__wrap">
+                    <app-pagination [data]="products" [paginate]="paginate" (setPage)="setPage($event)"/>
+                </div>
+                <!-- pagination -->
+            </div>
+        </div>
+    </div>
+</section>

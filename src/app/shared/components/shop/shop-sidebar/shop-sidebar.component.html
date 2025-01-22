@@ -1,0 +1,58 @@
+<aside class="shop-sidebar">
+    <div class="shop__widget">
+        <h4 class="shop__widget-title">search</h4>
+        <div class="shop__widget-inner">
+            <div class="shop__search">
+                <input type="text"  placeholder="Search here" (change)="setSearchQuery($event)">
+                <button class="p-0 border-0" (click)="setSearchQueryFromButton()">
+                  <i class="flaticon-search"></i>
+                </button>
+              </div>
+        </div>
+    </div>
+    <div class="shop__widget">
+        <h4 class="shop__widget-title">filter by price</h4>
+        <div class="shop__widget-inner">
+            <div class="shop__price-filter">
+                <div #priceSlider id="slider-range"></div>
+                <div class="shop__price-slider-amount">
+                    <input type="submit" class="p-0 border-0" value="Filter"/>
+                    <span class=''>${{priceValue[0]}} - ${{priceValue[1]}}</span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="shop__widget">
+        <h4 class="shop__widget-title">Related products</h4>
+        <div class="shop__widget-inner">
+            <div *ngFor="let item of related__products" class="related__products-item">
+                <div class="related__products-thumb">
+                    <a [routerLink]="['/shop-details/' + item.id]">
+                        <img [src]="item.img" alt="img">
+                    </a>
+                </div>
+                <div class="related__products-content">
+                    <h4 class="product-name">
+                        <a [routerLink]="['/shop-details/' + item.id]">{{ item.title }}</a>
+                    </h4>
+                    <span class="amount">${{ item.price }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop__widget">
+        <h4 class="shop__widget-title">Categories</h4>
+        <div class="shop__widget-inner">
+            <ul class="product-categories list-wrap">
+                <li *ngFor="let category of unique_categories">
+                    <a href="javascript:void(0)" (click)="handleCategoryRoute(category)"
+                        [class.active]="activeQuery === category.toLowerCase()">
+                        {{ category }}
+                    </a>
+                    <span class="float-right">{{ getProductCount(category) }}</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</aside>

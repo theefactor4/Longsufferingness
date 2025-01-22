@@ -1,0 +1,16 @@
+<div class="coming-time" *ngIf="!style_2">
+  <div class="time-count day">
+    <span>{{days}}</span>Day
+  </div>
+  <div class="time-count hour">
+    <span>{{hours}}</span>hour
+  </div>
+  <div class="time-count min">
+    <span>{{minutes}}</span>min
+  </div>
+  <div class="time-count sec">
+    <span>{{seconds}}</span>sec
+  </div>
+</div>
+
+<span *ngIf="style_2">{{hours}}h : {{minutes}}m : {{seconds}}s</span>

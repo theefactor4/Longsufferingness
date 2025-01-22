@@ -1,0 +1,86 @@
+<aside class="blog-sidebar">
+    <div class="blog-widget">
+        <div class="sidebar__author">
+            <div class="sidebar__author-thumb">
+                <img src="/assets/img/blog/avatar.jpg" alt="img">
+            </div>
+            <div class="sidebar__author-content">
+                <h4 class="name">Kaceytron G.</h4>
+                <p>Lorem ipsum sitamet conteur adipiscing Duis elementum solliciin</p>
+                <div class="sidebar__author-social">
+                    <a href="#">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M8.33192 5.92804L13.5438 0H12.3087L7.78328 5.14724L4.16883 0H0L5.46575 7.78353L0 14H1.2351L6.01407 8.56431L9.83119 14H14L8.33192 5.92804ZM6.64027 7.85211L6.08648 7.07704L1.68013 0.909771H3.57718L7.13316 5.88696L7.68694 6.66202L12.3093 13.1316H10.4123L6.64027 7.85211Z" fill="currentColor" />
+                        </svg>
+                    </a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-widget">
+        <form class="sidebar-search-form position-relative">
+            <input type="text" placeholder="Search here..">
+            <button><i class="flaticon-loupe"></i></button>
+        </form>
+    </div>
+    <div class="blog-widget widget_categories">
+        <h4 class="fw-title">CATEGORIES</h4>
+        <ul class="list-wrap">
+            <li><a href="#">gaming</a><span class="float-right">(11)</span></li>
+            <li><a href="#">ELECTRONIC</a><span class="float-right">(4)</span></li>
+            <li><a href="#">online</a><span class="float-right">(21)</span></li>
+            <li><a href="#">TOURNAMENT</a><span class="float-right">(15)</span></li>
+            <li><a href="#">controller</a><span class="float-right">(2)</span></li>
+            <li><a href="#">live</a><span class="float-right">(7)</span></li>
+        </ul>
+    </div>
+    <div class="blog-widget">
+        <h4 class="fw-title">Recent Posts</h4>
+        <div class="rc__post-wrapper">
+            <div *ngFor="let item of recent_posts" class="rc__post-item">
+                <div class="rc__post-thumb">
+                    <a [routerLink]="['/blog-details', item.id]">
+                        <img [src]="item.img" alt="img" width="112" height="88">
+                    </a>
+                </div>
+                <div class="rc__post-content">
+                    <h6 class="title">
+                        <a [routerLink]="['/blog-details', item.id]">{{ item.title }}</a>
+                  </h6>
+                    <span class="date">{{ item.date }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="blog-widget">
+        <h4 class="fw-title">Newsletter</h4>
+        <div class="sidebar__newsletter">
+            <p>Lorem ipsum sitamet conteur adipiscin</p>
+            <form action="#" class="sidebar__newsletter-form">
+                <input type="email" name="email" placeholder="Enter Your Email">
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </form>
+        </div>
+    </div>
+    <div class="blog-widget">
+        <h4 class="fw-title">INSTAGRAM</h4>
+        <div class="sidebar__insta">
+            <div *ngFor="let item of instagram_images" class="sidebar__insta-item">
+                <a [href]="item.link" target="_blank"><img [src]="item.img" alt="img"></a>
+            </div>
+        </div>
+    </div>
+    <div class="blog-widget">
+        <h4 class="fw-title">Tag Cloud</h4>
+        <div class="tagcloud">
+            <a href="#">E-sports</a>
+            <a href="#">Fantasy</a>
+            <a href="#">game</a>
+            <a href="#">Tournaments</a>
+            <a href="#">Matches</a>
+            <a href="#">Streamers</a>
+        </div>
+    </div>
+</aside>

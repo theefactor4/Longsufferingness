@@ -1,0 +1,49 @@
+<section class="slider__area slider__bg" style="background-image: url('/assets/img/slider/slider_bg.jpg');">
+    <div class="slider-activee">
+        <div class="single-slider">
+            <div class="container custom-container">
+                <div class="row justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="slider__content">
+                            <h6 class="sub-title" data-sal-delay="200" data-sal="slide-up" data-sal-duration="1000">
+                                live gaming
+                            </h6>
+                            <h2 class="title" data-sal-delay="500" data-sal="slide-up" data-sal-duration="1000">
+                                steaming
+                            </h2>
+                            <p data-sal-delay="800" data-sal="slide-up" data-sal-duration="1000">video games online</p>
+                            <div class="slider__btn" data-sal-delay="1200" data-sal="slide-up" data-sal-duration="1000">
+                                <a routerLink="/contact" class="tg-btn-1">
+                                    <span>contact us</span>
+                                    <app-btn-bg/>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-6 col-xl-5 col-lg-6">
+                        <div class="slider__img text-center">
+                            <img src="/assets/img/slider/slider_img01.png" data-magnetic alt="img">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="slider__shapes">
+        <img src="/assets/img/slider/slider_shape01.png" alt="shape">
+        <img src="/assets/img/slider/slider_shape02.png" alt="shape">
+        <img src="/assets/img/slider/slider_shape03.png" alt="shape">
+        <img src="/assets/img/slider/slider_shape04.png" alt="shape">
+    </div>
+    <div class="slider__brand-wrap">
+        <div class="container custom-container">
+            <ul class="slider__brand-list list-wrap">
+                <li *ngFor="let brand of brands; let i = index" (mouseenter)="handleHoverIndex(i)" (mouseleave)="handleHoverIndex(null)" [style.opacity]="hoveredIndex === null || hoveredIndex === i ? 1 : 0.3" [style.transition]="'opacity 0.3s'">
+                    <a href="#">
+                        <img [src]="brand" alt="brand">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>

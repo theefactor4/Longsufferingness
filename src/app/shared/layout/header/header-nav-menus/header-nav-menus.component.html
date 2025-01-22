@@ -1,0 +1,34 @@
+<div class="tgmenu__navbar-wrap tgmenu__main-menu d-none d-xl-flex">
+    <ul class="navigation">
+      <li
+        *ngFor="let menu of menuData"
+        [ngClass]="{
+          'menu-item-has-children': menu.sub_menu,
+          'active': isMenuActive(menu)
+        }"
+      >
+        <!-- No submenu -->
+        <a
+          *ngIf="!menu.sub_menu"
+          [routerLink]="menu.link"
+          routerLinkActive="active"
+        >
+          {{ menu.title }}
+        </a>
+  
+        <!-- With submenu -->
+        <a *ngIf="menu.sub_menu" href="#">{{ menu.title }}</a>
+  
+        <!-- Submenu list -->
+        <ul *ngIf="menu.sub_menu" class="sub-menu">
+          <li
+            *ngFor="let sub of menu.sub_menu"
+            [ngClass]="{ active: isActive(sub.link) }"
+          >
+            <a [routerLink]="sub.link" routerLinkActive="active">{{ sub.title }}</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  

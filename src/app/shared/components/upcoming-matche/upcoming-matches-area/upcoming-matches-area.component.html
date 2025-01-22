@@ -1,0 +1,53 @@
+<section class="upcoming-match__area section-pt-120 section-pb-85" [style.backgroundImage]="'url(/assets/img/bg/match_bg.jpg)'">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-xl-6 col-lg-7 col-md-10">
+          <div class="section__title text-center mb-60">
+            <span class="sub-title tg__animate-text">MATCHES list</span>
+            <h3 class="title">upcoming MATCHES</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="upcoming-match__lists">
+            <div 
+              class="upcoming-match__item tg-svg"
+              *ngFor="let match of upcomingMatchData; let i = index"
+              [attr.data-sal-delay]="i * 0.2 + '00'" data-sal="slide-up" data-sal-duration="1000"
+            >
+              <app-svg-icon-anim [id]="match.svgId" [icon]="'/assets/img/icons/match.svg'"/>
+              <div class="upcoming-match__position">
+                <div class="upcoming-match__team team-left">
+                  <a routerLink="/tournament-details"><img [src]="match.teamLeft.img" alt="img"></a>
+                </div>
+                <div class="upcoming-match__content">
+                  <div class="team--info info-left">
+                    <span class="game-name">{{ match.game }}</span>
+                    <h3 class="name"><a routerLink="/tournament-details">{{ match.teamLeft.name }}</a></h3>
+                  </div>
+                  <div class="upcoming-match__time">
+                    <h2 class="time">{{ match.time }}</h2>
+                  </div>
+                  <div class="team--info info-right">
+                    <span class="game-name">{{ match.game }}</span>
+                    <h3 class="name"><a routerLink="/tournament-details">{{ match.teamRight.name }}</a></h3>
+                  </div>
+                </div>
+                <div class="upcoming-match__team team-right">
+                  <a routerLink="/tournament-details"><img [src]="match.teamRight.img" alt="img"></a>
+                </div>
+              </div>
+              <div class="upcoming-match__date">
+                <svg xmlns="http://www.w3.org/2000/svg" width="287" height="24" viewBox="0 0 287 24">
+                  <path d="M1104,3760l-20,24H837l-20-24" transform="translate(-817 -3760)" />
+                </svg>
+                <span>{{ match.date }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

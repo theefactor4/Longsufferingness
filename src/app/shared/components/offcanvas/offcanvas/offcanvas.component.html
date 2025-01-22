@@ -1,0 +1,62 @@
+<div [class.offCanvas__menu-visible]="isOffCanvasOpen">
+    <div class="offCanvas__wrap">
+      <div class="offCanvas__body">
+        <div class="offCanvas__top">
+          <div class="offCanvas__logo logo">
+            <a routerLink="/home/home-one">
+              <img src="/assets/img/logo/logo.png" alt="Logo" />
+            </a>
+          </div>
+          <div
+            class="offCanvas__toggle"
+            (click)="handleCloseOffCanvas('/assets/audio/remove.wav')"
+          >
+            <i class="flaticon-swords-in-cross-arrangement"></i>
+          </div>
+        </div>
+        <div class="offCanvas__content">
+          <h2 class="title">
+            Best Seller of Month Ideas for <span>NFT Wallet</span>
+          </h2>
+          <div class="offCanvas__contact">
+            <h4 class="small-title">CONTACT US</h4>
+            <ul class="offCanvas__contact-list list-wrap">
+              <li><a href="tel:93332225557">+9 333 222 5557</a></li>
+              <li><a href="mailto:info@webmail.com">info&#64;webmail.com</a></li>
+              <li>New Central Park W7 Street, New York</li>
+            </ul>
+          </div>
+          <div class="offCanvas__newsletter">
+            <h4 class="small-title">Subscribe</h4>
+            <form class="offCanvas__newsletter-form">
+              <input type="email" placeholder="Get News & Updates" />
+              <button type="submit">
+                <i class="flaticon-send"></i>
+              </button>
+            </form>
+            <p>
+              Subscribe dolor sit amet, consectetur adipiscing elit. Duis
+              sollicitudin augue.
+            </p>
+          </div>
+          <ul class="offCanvas__social list-wrap">
+            <li *ngFor="let social of socialData">
+              <a [href]="social.link" target="_blank">
+                <i [class]="social.icon"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="offCanvas__copyright">
+          <p>
+            Copyright © {{currentYear}} - By <span>MYKD</span>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      class="offCanvas__overlay"
+      (click)="isOffCanvasOpenChange.emit(false)"
+    ></div>
+  </div>
+  

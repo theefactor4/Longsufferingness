@@ -1,0 +1,116 @@
+<section class="tournament__details-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="blog-post-wrapper">
+                <div class="tournament__details-content">
+                    <h2 class="title">zombie land TOURNAMENT max</h2>
+                    <div class="blog-post-meta">
+                        <ul class="list-wrap">
+                            <li>By<a href="#">Admin</a></li>
+                            <li><i class="far fa-calendar-alt"></i> Aug 16, 2024</li>
+                            <li><i class="far fa-comments"></i><a href="#">No comments</a></li>
+                        </ul>
+                    </div>
+                    <p>Excepteur sint occaecat atat non proident, sunt in culpa qui officia deserunt mollit anim id est labor umLor em ipsum dolor amet consteur adiscing Duis elentum solliciin is yaugue euismods Nulla ullaorper. Ipsum is simply dummy text of  printing and typeetting industry. Lorem Ipsum has been the industry's standsaard sipiscing Duis elementum solliciin. Duis aute irure dolor in repderit in voluptate velit esse cillum dolorliq commodo consequat.</p>
+                    <blockquote>
+                        <p>Duis elentum solliciin is yaugue euismods Nulla ullaorper. Ipsum is simply dummy text of printing and typeetting industry.</p>
+                    </blockquote>
+                    <p>Axcepteur sint occaecat atat non proident, sunt in culpa qui officia deserunt mollit anim id est labor umLor em ipsum dolor amet, consteur adiscing Duis elentum solliciin is yaugue euismods Nulla ullaorper. Ipsum is simply dummy text of  printing and typeetting industry. Lorem Ipsum has been the industry's standsaard sipiscing Duis elementum.</p>
+                    <div class="tournament__details-video position-relative">
+                        <img src="/assets/img/blog/blog_post03.jpg" alt="img">
+                        <a (click)="utilsService.playVideo('_SAlU-hu8M0')" class="popup-video pointer">
+                            <i class="flaticon-play"></i>
+                        </a>
+                    </div>
+                    <p>Axcepteur sint occaecat atat non proident, sunt in culpa qui officia deserunt mollit anim id est labor umLor em ipsum dolor amet, consteur adiscing Duis elentum solliciin is yaugue euismods Nulla ullaorper. Ipsum is simply dummy text of printing.</p>
+                    <div class="tournament__details-form">
+                        <h4 class="tournament__details-form-title">join nft games android</h4>
+                        <p>Simply dummy text of printing and typeetting industry been the industry's</p>
+                        <form action="#">
+                            <input type="text" placeholder="Name *">
+                            <input type="text" placeholder="Player ID *" required>
+                            <input type="email" placeholder="Email *" required>
+                            <button class="tournament__details-form-btn">Join Now</button>
+                        </form>
+                    </div>
+                    <div class="blog-details-bottom">
+                        <div class="row">
+                            <div class="col-xl-6 col-md-7">
+                                <div class="tg-post-tags">
+                                    <h5 class="tags-title">tags :</h5>
+                                    <ul class="list-wrap d-flex flex-wrap align-items-center m-0">
+                                        <li><a href="#">Esports</a>,</li>
+                                        <li><a href="#">Fantasy</a>,</li>
+                                        <li><a href="#">game</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-xl-6 col-md-5">
+                                <div class="blog-post-share justify-content-start justify-content-md-end">
+                                    <h5 class="share">share :</h5>
+                                    <ul class="list-wrap">
+                                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                                        <li>
+                                            <a href="#">
+                                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8.33192 5.92804L13.5438 0H12.3087L7.78328 5.14724L4.16883 0H0L5.46575 7.78353L0 14H1.2351L6.01407 8.56431L9.83119 14H14L8.33192 5.92804ZM6.64027 7.85211L6.08648 7.07704L1.68013 0.909771H3.57718L7.13316 5.88696L7.68694 6.66202L12.3093 13.1316H10.4123L6.64027 7.85211Z"
+                                                        fill="currentColor" />
+                                                </svg>
+                                            </a>
+                                        </li>
+                                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="blog-post-sidebar">
+                <aside class="blog-sidebar tournament__sidebar">
+                    <div class="shop__widget">
+                        <h4 class="shop__widget-title">search</h4>
+                        <div class="shop__widget-inner">
+                            <div class="shop__search">
+                                <input type="text" placeholder="Search here">
+                                <button class="p-0 border-0"><i class="flaticon-search"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop__widget">
+                        <h4 class="shop__widget-title">TRENDING MATCHES</h4>
+                        <div class="shop__widget-inner">
+                            <div class="trending__matches-list">
+                                <div *ngFor="let match of trendingMatchesData" class="trending__matches-item">
+                                    <div class="trending__matches-thumb">
+                                        <a href="#"><img [src]="match.image" alt="img"></a>
+                                    </div>
+                                    <div class="trending__matches-content">
+                                        <div class="info">
+                                            <h5 class="title"><a href="#">{{match.title}}</a></h5>
+                                            <span class="price">$ {{match.price}}</span>
+                                        </div>
+                                        <div class="play">
+                                            <a (click)="utilsService.playVideo(match.videoId)" href="javascript:void(0)" class="popup-video pointer">
+                                                <i class="far fa-play-circle"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop__widget">
+                        <h4 class="shop__widget-title">ADVERTISEMENT</h4>
+                        <div class="shop__widget-inner">
+                            <div class="tournament__advertisement">
+                                <a href="#"><img src="/assets/img/others/tournament_ad.jpg" alt="img"></a>
+                            </div>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>

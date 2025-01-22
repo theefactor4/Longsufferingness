@@ -1,0 +1,78 @@
+<div>
+    <!-- header area start -->
+    <app-header-one />
+    <!-- header area end -->
+
+    <main class="main--area">
+
+        <!-- breadcrumb area start -->
+        <app-breadcrumb-one title="Login" subtitle="SIGN IN" bg="/assets/img/bg/breadcrumb_bg01.jpg"
+            brd_img="/assets/img/others/breadcrumb_img02.png" />
+        <!-- breadcrumb area end -->
+
+        <!-- login-area start-->
+        <section class="signup__area team-bg section-pt-120 section-pb-120"
+            style="background-image: url(/assets/img/bg/team_bg.jpg);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="singUp-wrap">
+                            <h2 class="title">Welcome back!</h2>
+                            <p>Hey there! Ready to log in? Just enter your username and password below and you'll be
+                                back in action in no time. Let's go!</p>
+                            <div class="account__social">
+                                <a href="#" class="account__social-btn">
+                                    <app-google-svg />
+                                    Continue with google
+                                </a>
+                            </div>
+                            <div class="account__divider">
+                                <span>OR</span>
+                            </div>
+                            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="account__form">
+                                <span *ngIf="(email?.hasError('required') && email?.touched) || (email?.hasError('email') && email?.dirty) || (formSubmitted && !email?.value)" class="text-danger">
+                                    Email is required & must be a valid email
+                                </span>
+                                <div class="form-grp">
+                                    <label for="email">Email</label>
+                                    <input id="email" type="text" placeholder="email" formControlName="email">
+                                </div>
+                                <span *ngIf="(password?.hasError('required') && (password?.touched || formSubmitted))"
+                                    class="text-danger">
+                                    Password is required
+                                </span>
+                                <span *ngIf="(password?.hasError('minlength') && (password?.touched || formSubmitted))"
+                                    class="text-danger">
+                                    Password must be at least 6 characters
+                                </span>
+                                <div class="form-grp">
+                                    <label for="password">Password</label>
+                                    <input id="password" type="text" placeholder="password" formControlName="password">
+                                </div>
+                                <div class="account__check">
+                                    <div class="account__check-remember">
+                                        <input type="checkbox" class="form-check-input" value="" id="terms-check">
+                                        <label for="terms-check" class="form-check-label">Remember me</label>
+                                    </div>
+                                    <div class="account__check-forgot">
+                                        <a routerLink="/reset-password">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-two arrow-btn">Login</button>
+                            </form>
+                            <div class="account__switch">
+                                <p>Don't have an account?<a routerLink="/register">Sign Up</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- login-area-end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <app-footer-one />
+    <!-- footer area end -->
+</div>

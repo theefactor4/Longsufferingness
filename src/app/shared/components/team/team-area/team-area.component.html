@@ -1,0 +1,31 @@
+<section class="team__area team-bg section-pt-130 section-pb-100"
+    style="background-image: url(/assets/img/bg/team_bg.jpg)">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-6 col-lg-7 col-md-10">
+                <div class="section__title text-center mb-60">
+                    <app-text-animation [title]="'our team member'"></app-text-animation>
+                    <h3 class="title">ACTIVE TEAM MEMBERS</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div *ngFor="let t of teamData; let i = index" class="col-xl-3 col-lg-4 col-sm-6"
+                [attr.data-sal-delay]="(i + 1) + '00'" data-sal="slide-up" data-sal-duration="1000">
+                <div class="team__item">
+                    <div class="team__thumb">
+                        <a [routerLink]="['/team-details/',t.id]">
+                            <img [src]="t.img" alt="img" />
+                        </a>
+                    </div>
+                    <div class="team__content">
+                        <h4 class="name">
+                            <a [routerLink]="['/team-details/' + t.id]">{{t.title}}</a>
+                        </h4>
+                        <span class="designation">{{t.subtitle}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

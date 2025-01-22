@@ -1,0 +1,9 @@
+<section class="nft-item__area">
+    <div class="container custom-container">
+        <div class="row justify-content-center">
+            <div *ngFor="let item of nftItems" class="col-xxl-4 col-xl-5 col-lg-6 col-md-9">
+                <app-nft-card-item [item]="item"></app-nft-card-item>
+            </div>
+        </div>
+    </div>
+</section>

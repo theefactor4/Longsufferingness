@@ -1,0 +1,48 @@
+<header class="header-area-3">
+    <div class="tg-header__area tg-header__area-three">
+        <div class="container custom-container3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="mobile-nav-toggler" (click)="handleOpenMobileOffCanvas('/assets/audio/click.wav')">
+                        <i class="fas fa-bars"></i>
+                    </div>
+                    <div class="tgmenu__wrap">
+                        <nav class="tgmenu__nav">
+                            <div class="logo">
+                                <a routerLink="/home/home-one">
+                                    <img src="/assets/img/logo/logo.png" alt="Logo">
+                                </a>
+                            </div>
+                                <!-- nav menus -->
+                                <app-header-nav-menus [ngStyle]="{'margin': '0 auto'}" />
+                                <!-- nav menus -->
+                            <div class="tgmenu__action d-none d-md-block">
+                                <ul class="list-wrap">
+                                    <li class="header-btn">
+                                        <a routerLink="/login" class="tg-btn-4">
+                                            <span>Get A Quote</span>
+                                        </a>
+                                    </li>
+                                    <li (click)="handleOpenOffCanvas('/assets/audio/click.wav')" class="side-toggle-icon">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- OffCanvas Area -->
+   <app-offcanvas [(isOffCanvasOpen)]="isOffCanvasOpen"></app-offcanvas>
+   <!-- End OffCanvas Area -->
+
+   <!-- mobile-off-canvas -->
+   <app-mobile-offcanvas [openMobileOffCanvas]="openMobileOffCanvas" (setOpenMobileOffCanvas)="openMobileOffCanvas = $event"
+/>
+   <!-- End mobile-off-canvas -->
+</header>

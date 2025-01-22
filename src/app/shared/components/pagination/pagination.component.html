@@ -1,0 +1,17 @@
+<ul class="list-wrap d-flex flex-wrap justify-content-center" *ngIf="paginate.pages && paginate.pages.length">
+  <li [ngClass]="{ disabled: paginate.currentPage === 1 }">
+    <a (click)="pageSet(paginate.currentPage - 1)" class="page-numbers pointer">
+      <i class="fas fa-angle-double-left"></i>
+    </a>
+  </li>
+  <li *ngFor="let page of paginate.pages">
+    <a class="page-numbers pointer" [ngClass]="{ current: paginate.currentPage == page }" (click)="pageSet(page)">
+      {{page}}
+    </a>
+  </li>
+  <li [ngClass]="{ disabled: paginate.currentPage == paginate.totalPages }">
+    <a class="next page-numbers pointer" (click)="pageSet(paginate.currentPage + 1)">
+      <i class="fas fa-angle-double-right"></i>
+    </a>
+  </li>
+</ul>

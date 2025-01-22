@@ -1,0 +1,33 @@
+<ul class="navigation">
+    <ng-container *ngFor="let menu of menuData; let i = index">
+      <!-- Main menu item with sub-menu -->
+      <ng-container *ngIf="menu.sub_menu">
+        <li class="menu-item-has-children">
+          <a href="javascript:void(0)">{{ menu.title }}</a>
+          <ul
+            class="sub-menu"
+            [ngStyle]="{ display: navTitle === menu.title ? 'block' : 'none' }"
+          >
+            <li *ngFor="let sub of menu.sub_menu; let j = index">
+              <a [routerLink]="sub.link">{{ sub.title }}</a>
+            </li>
+          </ul>
+          <div
+            (click)="openMobileMenu(menu.title, '/assets/audio/click.wav')"
+            class="dropdown-btn"
+            [class.open]="navTitle === menu.title"
+          >
+            <span class="plus-line"></span>
+          </div>
+        </li>
+      </ng-container>
+  
+      <!-- Main menu item without sub-menu -->
+      <ng-container *ngIf="!menu.sub_menu">
+        <li>
+          <a [routerLink]="menu.link">{{ menu.title }}</a>
+        </li>
+      </ng-container>
+    </ng-container>
+  </ul>
+  

@@ -1,0 +1,35 @@
+<div [class.search__active]="isSearchOpen">
+    <div class="search__popup-wrap">
+      <div class="search__layer"></div>
+      <div class="search__close" (click)="handleCloseSearch('/assets/audio/remove.wav')">
+        <span>
+          <i class="flaticon-swords-in-cross-arrangement"></i>
+        </span>
+      </div>
+      <div class="search__wrap text-center">
+        <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <h2 class="title">
+                ... <span>Search Here</span> ...
+              </h2>
+              <div class="search__form">
+                <form>
+                  <input
+                    type="text"
+                    name="search"
+                    placeholder="Type keywords here"
+                    required
+                  />
+                  <button type="button" class="search-btn">
+                    <i class="flaticon-loupe"></i>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

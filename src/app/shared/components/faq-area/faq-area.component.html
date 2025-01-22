@@ -1,0 +1,52 @@
+<section class="faq-area">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="faq__content-wrap">
+                    <div class="section__title text-start">
+                        <span class="sub-title tg__animate-text">Get your answer</span>
+                        <h3 class="title">Frequently asked questions</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum
+                            <br />
+                            sollicitudin is yaugue euismods.
+                        </p>
+                    </div>
+                    <div class="faq__wrapper">
+                        <div class="accordion" id="accordionExample">
+                            <div *ngFor="let item of faq_data; let i = index" class="accordion-item"
+                                (click)="handleMouseOver(i)">
+                                <h2 class="accordion-header" [id]="'heading-' + item.id">
+                                    <button class="accordion-button" [class.collapsed]="!item.active" type="button"
+                                        data-bs-toggle="collapse" [attr.data-bs-target]="'#collapse-' + item.id"
+                                        [attr.aria-expanded]="item.active ? 'true' : 'false'"
+                                        [attr.aria-controls]="'collapse-' + item.id">
+                                        <span class="count">{{ i + 1 }}</span> {{ item.title }}
+                                    </button>
+                                </h2>
+                                <div [id]="'collapse-' + item.id" class="accordion-collapse collapse"
+                                    [class.show]="item.active" [attr.aria-labelledby]="'heading-' + item.id"
+                                    data-bs-parent="#accordionExample">
+                                    <div class="accordion-body">
+                                        {{ item.desc }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="services__images">
+                    <div *ngFor="let s of service_images; let i = index" class="services__images-item"
+                        [class.active]="activeIndex === i">
+                        <img [src]="s" alt="img"/>
+                        <a routerLink="/service-details" class="services__link">
+                            <i class="flaticon-next"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

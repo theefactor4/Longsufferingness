@@ -1,0 +1,39 @@
+<div class="shop__details-images-wrap wrap-two">
+    <ul class="nav nav-tabs" id="imageTab" role="tablist">
+      <li
+        *ngFor="let image of images; let i = index"
+        class="nav-item"
+        role="presentation"
+      >
+        <button
+          class="nav-link"
+          [class.active]="i === 0"
+          [id]="'tab-' + i"
+          data-bs-toggle="tab"
+          [attr.data-bs-target]="'#pane-' + i"
+          type="button"
+          role="tab"
+          [attr.aria-controls]="'pane-' + i"
+          [attr.aria-selected]="i === 0"
+        >
+          <img [src]="image" alt="Product image" />
+        </button>
+      </li>
+    </ul>
+    <div class="tab-content" id="imageTabContent">
+      <div
+        *ngFor="let image of images; let i = index"
+        class="tab-pane"
+        [class.show]="i === 0"
+        [class.active]="i === 0"
+        [id]="'pane-' + i"
+        role="tabpanel"
+        [attr.aria-labelledby]="'tab-' + i"
+      >
+        <a href="javascript:void(0)" class="popup-image" (click)="lightbox.open(i)">
+          <img [src]="image" alt="Product image"  />
+        </a>
+      </div>
+    </div>
+</div>
+  

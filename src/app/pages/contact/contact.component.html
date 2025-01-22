@@ -1,0 +1,79 @@
+<div>
+    <!-- header area start -->
+    <app-header-one></app-header-one>
+    <!-- header area end -->
+
+    <main class="main--area">
+
+        <!-- breadcrumb area start -->
+        <app-breadcrumb-three title="Contact us" subtitle="Contact"></app-breadcrumb-three>
+        <!-- breadcrumb area end -->
+
+        <!-- contact-area -->
+        <section class="contact-area">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-6 col-md-10">
+                        <div class="contact__content">
+                            <h2 class="overlay-title"><span>join us</span></h2>
+                            <h2 class="title">CONTACT US AND FIND YOUR mykd</h2>
+                            <p>Axcepteur sint occaecat atat non proident, sunt culpa officia deserunt mollit anim id est
+                                labor umLor emdolor</p>
+                            <div class="footer-el-widget">
+                                <h4 class="title">information</h4>
+                                <ul class="list-wrap">
+                                    <li><a href="tel:123">+971 333 222 557</a></li>
+                                    <li><a href="mailto:info@exemple.com">info&#64;exemple.com</a></li>
+                                    <li>New Central Park W7 Street, New York</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-10">
+                        <div class="contact__form-wrap">
+                            <form id="contact-form" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <span *ngIf="name?.hasError('required') && (name?.touched || formSubmitted)" class="text-danger">
+                                          Name is required
+                                        </span>
+                                        <div class="input-grp">
+                                            <input name="name" type="text" placeholder="Name *" formControlName="name">
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <span *ngIf="(email?.hasError('required') && email?.touched) || (email?.hasError('email') && email?.dirty) || (formSubmitted && !email?.value)" class="text-danger">
+                                          Email is required
+                                        </span>
+                                        <div class="input-grp">
+                                            <input name="email" type="email" placeholder="Email *" formControlName="email">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="input-grp message-grp">
+                                    <span *ngIf="message?.hasError('required') && (message?.touched || formSubmitted)" class="text-danger">Message is required </span>
+                                    <textarea name="message" cols="30" rows="10"
+                                        placeholder="Enter your message" formControlName="message"></textarea>
+                                </div>
+                                <button class="submit-btn">Submit Now</button>
+                            </form>
+                            <p class="ajax-response"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- contact-area-end -->
+
+        <!-- contact-map -->
+        <div class="contact-map">
+            <iframe src="https://geo-devrel-javascript-samples.web.app/samples/style-array/app/dist/" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <!-- contact-map-end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <app-footer-one></app-footer-one>
+    <!-- footer area end -->
+</div>

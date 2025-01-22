@@ -1,0 +1,185 @@
+<div>
+    <!-- header area start -->
+    <app-header-one />
+    <!-- header area end -->
+
+    <main class="main--area" *ngIf="product">
+
+        <!-- breadcrumb area start -->
+        <app-breadcrumb-three title="PRODUCT SINGLE" subtitle="PRODUCT SINGLE" />
+        <!-- breadcrumb area end -->
+
+        <!-- product-details-area start-->
+        <section class="shop-area shop-details-area">
+            <div class="container">
+                <div class="row">
+                    <!-- shop__details-images-wrap -->
+                    <app-shop-details-images [images]="productImages" [ngClass]="'shop__details-images-wrap'" />
+                    <!-- shop__details-content -->
+                    <div class="shop__details-content">
+                        <div class="shop__details-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span class="rating-count">( 3 Customer Review )</span>
+                        </div>
+                        <h2 class="title">{{product.title}}</h2>
+                        <div class="shop__details-price">
+                            <span class="amount">${{product.price}} <span class="stock-status">- 
+                                {{product.quantity === 0 ? 'Out of Stock' : 'IN STOCK'}}</span>
+                            </span>
+                        </div>
+                        <div class="shop__details-short-description">
+                            <p>{{product.description}}</p>
+                        </div>
+                        <div class="shop__details-model d-flex align-items-center">
+                            <p class="model m-0">Model:</p>
+                            <ul class="list-wrap d-flex align-items-center">
+                                <li *ngFor="let model of models; let i = index" [class.active]="selectedModel === model"
+                                    (click)="setActiveModel(model)">
+                                    {{ model }}
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="shop__details-qty">
+                            <div class="cart-plus-minus d-flex flex-wrap align-items-center">
+                                <form action="#" class="quantity num-block">
+                                    <input type="text" class="in-num" [value]="cartService.orderQuantity" disabled>
+                                    <div class="qtybutton-box">
+                                        <span (click)="cartService.increment()" class="plus">
+                                            <i class="fas fa-angle-up"></i>
+                                        </span>
+                                        <span (click)="cartService.decrement()" class="minus dis">
+                                            <i class="fas fa-angle-down"></i>
+                                        </span>
+                                    </div>
+                                </form>
+                                <button (click)="cartService.addCartProduct(product)" class="shop__details-cart-btn">
+                                    add to cart
+                                </button>
+                            </div>
+                        </div>
+                        <div class="shop__details-bottom">
+                            <div class="posted_in">
+                                <b>Categories :</b>
+                                <a href="#">Gamdias,</a>
+                                <a href="#">Apple,</a>
+                                <a href="#">Huawei</a>
+                            </div>
+                            <div class="tagged_as">
+                                <b>Tags :</b>
+                                <a href="#">Silver,</a>
+                                <a href="#">Pink,</a>
+                                <a href="#">Green</a>
+                            </div>
+                            <div class="product_share">
+                                <b>Share :</b>
+                                <a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-12">
+                        <!-- product__desc-wrap -->
+                        <div class="product__desc-wrap">
+                            <ul class="nav nav-tabs" id="descriptionTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="description-tab" data-bs-toggle="tab"
+                                        data-bs-target="#description" type="button" role="tab"
+                                        aria-controls="description" aria-selected="true">Description</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="info-tab" data-bs-toggle="tab" data-bs-target="#info"
+                                        type="button" role="tab" aria-controls="info" aria-selected="false">Additional
+                                        Information</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="reviews-tab" data-bs-toggle="tab"
+                                        data-bs-target="#reviews" type="button" role="tab" aria-controls="reviews"
+                                        aria-selected="false">Reviews (0)</button>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="descriptionTabContent">
+                                <div class="tab-pane animation-none fade show active" id="description" role="tabpanel"
+                                    aria-labelledby="description-tab">
+                                    <p>Lorem ipsum dolor sit amet, consteur adipiscing Duis elementum solliciin is
+                                        yaugue euismods Nulla ullaorper. Lorem Ipsum is simply dummy text of the
+                                        printing and typesetting industry. Lorem Ipsum has been the industry's standard
+                                        dummy text
+                                        ever since the 1500s.</p>
+                                    <p>Don't look even slightly believable. If you are going to use a passage of Lorem
+                                        Ipsum, you need to be sure there isn't anything embarrassing hidden in the
+                                        middle of text. All the Lorem Ipsum generators on the Internet tend to repeat
+                                        predefined chunks as necessary, making this the first true generator on the
+                                        Internet. It uses a dictionary of over 200 Latin words, combined with a handful
+                                        of model sentence structures, to generate Lorem Ipsum which looks reasonable.
+                                        The generated Lorem Ipsum is therefore always free from repetition, injected
+                                        humour.</p>
+                                </div>
+                                <div class="tab-pane animation-none fade" id="info" role="tabpanel"
+                                    aria-labelledby="info-tab">
+                                    <table class="table table-sm">
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">General</th>
+                                                <td>PS5 Digital Platform</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Technical Information</th>
+                                                <td>Qualcomm Snapdragon XR2</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Display</th>
+                                                <td>3664 x 1920</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">RAM & Storage</th>
+                                                <td>8GB/256GB</td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row">Included</th>
+                                                <td>PS5 VR Streaming Assistant</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="tab-pane animation-none fade" id="reviews" role="tabpanel"
+                                    aria-labelledby="reviews-tab">
+                                    <div class="product__desc-review">
+                                        <div class="product__desc-review-title mb-15">
+                                            <h5 class="title">Customer Reviews (0)</h5>
+                                        </div>
+                                        <div class="left-rc">
+                                            <p>No reviews yet</p>
+                                        </div>
+                                        <div class="right-rc">
+                                            <a href="#">Write a review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- related-products -->
+                <app-related-products />
+                <!-- related-products -->
+
+            </div>
+        </section>
+        <!-- product-details-area-end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <app-footer-one />
+    <!-- footer area end -->
+</div>

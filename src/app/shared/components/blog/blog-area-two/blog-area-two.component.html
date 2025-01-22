@@ -1,0 +1,15 @@
+<section class="blog-area">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="blog-post-wrapper">
+                <app-blog-item *ngFor="let blog of blogs" [blog]="blog"/>
+                <div class="pagination__wrap">
+                    <app-pagination [data]="blogs" [paginate]="paginate" (setPage)="setPage($event)"/>
+                </div>
+            </div>
+            <div class="blog-post-sidebar">
+                <app-blog-sidebar/>
+            </div>
+        </div>
+    </div>
+</section>

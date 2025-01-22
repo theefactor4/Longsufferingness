@@ -1,0 +1,56 @@
+
+<section [ngClass]="
+    'blog-area3 position-relative section-pb-120 ' +
+    (style_2 ? '' : 'section-pt-240 bg-img-center bg-img-cover')
+  ">
+    <div *ngIf="!style_2" class="blog-area3-bg-thumb" style="background-image: url('/assets/img/bg/blog_bg3.png')">
+    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div *ngIf="!style_2" class="section__title text-center mb-60 title-shape-none">
+                    <span class="sub-title2">Professional Esports Team</span>
+                    <h3 class="title2">
+                        Latest
+                        <span class="text-theme d-inline-block position-relative">
+                            <img class="section-line" src="/assets/img/others/section-line.png" alt="Section Line" />
+                            Blog Posts
+                        </span>
+                    </h3>
+                </div>
+                <div *ngIf="style_2" class="section__title text-center mb-60 title-shape-none">
+                    <span class="sub-title2">Professional Esports Team</span>
+                    <h3 class="title2">Latest Blog Posts</h3>
+                </div>
+            </div>
+        </div>
+        <div class="row gy-4 justify-content-center">
+            <div *ngFor="let blog of blogData" class="col-lg-6">
+                <div class="blog-card">
+                    <div class="blog-card-img">
+                        <img [src]="blog.img" alt="Blog Thumbnail" width="600" height="356" style="height: auto;" />
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-post-meta">
+                            <ul class="list-wrap">
+                                <li>
+                                    <i class="far fa-calendar-alt"></i> {{ blog.date }}
+                                </li>
+                                <li>
+                                    <i class="far fa-comments"></i>
+                                    <a href="#">{{ blog.comments === 0 ? 'No comments' : blog.comments + ' comments' }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <h4 class="blog-card-title">
+                            <a [routerLink]="['/blog-details', blog.id]">{{ blog.title }}</a>
+                        </h4>
+                        <div class="blog-post-read">
+                            <a [routerLink]="['/blog-details', blog.id]">Read Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

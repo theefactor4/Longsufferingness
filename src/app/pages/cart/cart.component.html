@@ -1,0 +1,101 @@
+<div>
+    <!-- header area start -->
+    <app-header-one />
+    <!-- header area end -->
+
+    <main class="main--area">
+
+        <!-- breadcrumb area start -->
+        <app-breadcrumb-one title="Shop Cart" subtitle="Cart" bg="/assets/img/bg/breadcrumb_bg01.jpg" brd_img="/assets/img/others/breadcrumb_img02.png" />
+        <!-- breadcrumb area end -->
+
+        <!-- cart-area start-->
+        <div class="cart__area team-bg section-pt-120 section-pb-120" style="background-image: url(/assets/img/bg/team_bg.jpg);">
+            <div class="container">
+                <div *ngIf="cartService.getCartProducts().length === 0" class="text-center pt-50">
+                  <h3>No Cart Items Found</h3>
+                   <a routerLink="/shop" class="btn mt-20">Continue Shopping</a>
+                </div>
+                <div *ngIf="cartService.getCartProducts().length > 0" class="row">
+                    <div class="col-lg-8">
+                        <table class="table cart__table">
+                            <thead>
+                                <tr>
+                                    <th class="product__thumb">&nbsp;</th>
+                                    <th class="product__name">Product</th>
+                                    <th class="product__price">Price</th>
+                                    <th class="product__quantity">Quantity</th>
+                                    <th class="product__subtotal">Subtotal</th>
+                                    <th class="product__remove">&nbsp;</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let item of cartService.getCartProducts()">
+                                    <td class="product__thumb">
+                                        <a [routerLink]="['/shop-details', item.id]">
+                                            <img [src]="item.img" alt="">
+                                        </a>
+                                    </td>
+                                    <td class="product__name">
+                                        <a [routerLink]="['/shop-details', item.id]">{{item.title}}</a>
+                                    </td>
+                                    <td class="product__price">${{item.price}}</td>
+                                    <td class="product__quantity">
+                                        <div class="shop__details-qty">
+                                            <div class="quantity num-block">
+                                                <input type="text" class="in-num" [value]="item.orderQuantity" readonly="">
+                                                <div class="qtybutton-box">
+                                                    <span (click)="cartService.addCartProduct(item)" class="plus">
+                                                        <i class="fas fa-angle-up"></i>
+                                                    </span>
+                                                    <span (click)="cartService.quantityDecrement(item)" class="minus dis">
+                                                        <i class="fas fa-angle-down"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="product__subtotal">${{item.price * item.orderQuantity!}}</td>
+                                    <td class="product__remove">
+                                        <a  (click)="cartService.removeCartProduct(item)" href="javascript:void(0)">×</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" class="cart__actions">
+                                        <form (ngSubmit)="handleCouponSubmit()" class="cart__actions-form">
+                                            <input type="text" placeholder="Coupon code" [(ngModel)]="couponCode" name="couponCode">
+                                            <button type="submit" class="btn">Apply coupon</button>
+                                        </form>
+                                        <div class="update__cart-btn text-end f-right">
+                                            <button (click)="cartService.clear_cart()" type="button" class="btn">
+                                                Clear cart
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="cart__collaterals-wrap">
+                            <h2 class="title">Cart totals</h2>
+                            <ul class="list-wrap">
+                                <li>Subtotal <span>${{(cartService.totalPriceQuantity().total).toFixed(2)}}</span></li>
+                                <li>Total <span class="amount">
+                                    ${{(cartService.totalPriceQuantity().total + shipCost).toFixed(2)}}</span>
+                                </li>
+                            </ul>
+                            <a routerLink="/checkout" class="btn">Proceed to checkout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- cart-area-end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <app-footer-one />
+    <!-- footer area end -->
+</div>

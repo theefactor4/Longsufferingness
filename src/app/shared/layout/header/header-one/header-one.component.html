@@ -1,0 +1,73 @@
+<header>
+   <div id="sticky-header" class="tg-header__area transparent-header" [class.tg-sticky-menu]="sticky"
+      [class.sticky-menu__show]="isStickyVisible">
+      <div class="container custom-container">
+         <div class="row"> 
+            <div class="col-12">
+               <div class="mobile-nav-toggler" (click)="handleOpenMobileOffCanvas('/assets/audio/click.wav')">
+                  <i class="fas fa-bars"></i>
+               </div>
+               <div class="tgmenu__wrap">
+                  <nav class="tgmenu__nav">
+                     <div class="logo">
+                        <a routerLink="/home/home-one">
+                           <img src="/assets/img/logo/logo.png" alt="Logo" />
+                        </a>
+                     </div>
+                        <!-- nav menus -->
+                        <app-header-nav-menus [ngStyle]="{'margin': '0 auto'}" />
+                        <!-- nav menus -->
+                     <div class="tgmenu__action d-none d-md-block">
+                        <ul class="list-wrap">
+                           <li class="search">
+                              <a class="pointer" (click)="handleOpenSearch('/assets/audio/click.wav')">
+                                 <i class="flaticon-search-1"></i>
+                              </a>
+                           </li>
+                           <li class="header-btn">
+                              <a routerLink="/contact"
+                                 [ngClass]="{ 'tg-btn-3 tg-svg': style_2, 'tg-border-btn': !style_2 }">
+
+                                 <svg preserveAspectRatio="none" viewBox="0 0 157 48" fill="none">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                       d="M131.75 2L155.75 25L131.75 47L148.75 24L131.75 2Z" fill="currentColor"></path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                       d="M25 1L1 24.5111L25 47L8 23.4889L25 1Z" fill="currentColor">
+                                    </path>
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                       d="M24.75 1L0.75 25L23.75 47H131.75L155.75 25L131.75 1H24.75Z"
+                                       stroke="currentColor" stroke-width="1.5"></path>
+                                 </svg>
+
+                                 <app-svg-icon-anim *ngIf="style_2" [icon]="'/assets/img/icons/shape02.svg'" [id]="'svg-2'" />
+
+                                 <i class="flaticon-edit"></i> ~sing in
+                              </a>
+                           </li>
+                           <li (click)="handleOpenOffCanvas('/assets/audio/click.wav')" class="side-toggle-icon">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                           </li>
+                        </ul>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <!-- Search Popup -->
+   <app-search-popup [(isSearchOpen)]="isSearchOpen"></app-search-popup>
+   <!-- End Search Popup -->
+
+   <!-- OffCanvas Area -->
+   <app-offcanvas [(isOffCanvasOpen)]="isOffCanvasOpen"></app-offcanvas>
+   <!-- End OffCanvas Area -->
+
+   <!-- mobile-off-canvas -->
+   <app-mobile-offcanvas [openMobileOffCanvas]="openMobileOffCanvas" (setOpenMobileOffCanvas)="openMobileOffCanvas = $event"
+/>
+   <!-- End mobile-off-canvas -->
+</header>

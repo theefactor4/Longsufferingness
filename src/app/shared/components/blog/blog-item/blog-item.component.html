@@ -1,0 +1,58 @@
+<div class="blog-post-item">
+    <div class="blog-post-thumb">
+      <a [routerLink]="['/blog-details', blog.id]">
+        <img [src]="blog.img" alt="img" />
+      </a>
+    </div>
+    <div class="blog-post-content">
+      <div class="blog-post-meta">
+        <ul class="list-wrap">
+          <li>
+            By
+            <a [routerLink]="['/blog-details', blog.id]">{{ blog.author }}</a>
+          </li>
+          <li>
+            <i class="far fa-calendar-alt"></i> {{ blog.author }}
+          </li>
+          <li>
+            <i class="far fa-comments"></i>
+            <a [routerLink]="['/blog-details', blog.id]">
+              {{ blog.comments === 0 ? 'No comments' : blog.comments + ' comments' }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <h2 class="title">
+        <a [routerLink]="['/blog-details', blog.id]">{{ blog.title }}</a>
+      </h2>
+      <p>{{ blog.desc }}</p>
+      <div class="blog-post-bottom">
+        <div class="blog-post-read">
+          <a [routerLink]="['/blog-details', blog.id]">
+            READ MORE <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        <div class="blog-post-share">
+          <h5 class="share">share :</h5>
+          <ul class="list-wrap">
+            <li>
+              <a href="https://www.facebook.com/" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://twitter.com/" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

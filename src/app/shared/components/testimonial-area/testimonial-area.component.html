@@ -1,0 +1,28 @@
+<section class="testimonial__area section-pb-120" style="background-image: url(/assets/img/bg/team_bg4.png);">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="section__title mb-60 title-shape-none">
+                    <h3 class="testimonial-title"><span>15k+ Active Customer Review</span></h3>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-container testimonial-active">
+            <div class="swiper-wrapper">
+                <div *ngFor="let item of testimonialData" class="swiper-slide">
+                    <div class="testimonial__item">
+                        <div class="testimonial__thumb">
+                            <img [src]="item.thumb" alt="img">
+                        </div>
+                        <div class="testimonial__content">
+                            <p class="content">{{item.content}}</p>
+                            <h4 class="name">{{item.name}}</h4>
+                            <span class="desig">{{item.designation}}</span>
+                        </div>
+                        <div class="quote-shape"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

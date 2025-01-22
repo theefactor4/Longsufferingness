@@ -1,0 +1,101 @@
+<div>
+    <!-- header area start -->
+    <app-header-one />
+    <!-- header area end -->
+
+    <main class="main--area">
+
+        <!-- breadcrumb area start -->
+        <app-breadcrumb-one title="Registration" subtitle="SIGN UP" bg="/assets/img/bg/breadcrumb_bg01.jpg"
+            brd_img="/assets/img/others/breadcrumb_img02.png" />
+        <!-- breadcrumb area end -->
+
+        <!-- register-area start-->
+        <section class="signup__area team-bg section-pt-120 section-pb-120"
+            style="background-image: url(/assets/img/bg/team_bg.jpg);">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8">
+                        <div class="singUp-wrap">
+                            <h2 class="title">Create Your Account</h2>
+                            <p>Hey there! Ready to join the party? We just need a few details from you to get started.
+                                Let's do this!</p>
+                            <div class="account__social">
+                                <a href="#" class="account__social-btn">
+                                    <app-google-svg />
+                                    Continue with google
+                                </a>
+                            </div>
+                            <div class="account__divider">
+                                <span>OR</span>
+                            </div>
+
+                            <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="account__form">
+                                <div class="row gutter-20">
+                                    <div class="col-md-6">
+                                        <span *ngIf="fname?.hasError('required') && (fname?.touched || formSubmitted)" class="text-danger">
+                                            First Name is required
+                                        </span>
+                                        <div class="form-grp">
+                                            <label for="fast-name">First Name</label>
+                                            <input type="text" id="fast-name" placeholder="First Name" formControlName="fname">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span *ngIf="lname?.hasError('required') && (lname?.touched || formSubmitted)" class="text-danger">
+                                            First Name is required
+                                        </span>
+                                        <div class="form-grp">
+                                            <label for="last-name">Last name</label>
+                                            <input type="text" id="last-name" placeholder="Last name" formControlName="lname">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <span *ngIf="(email?.hasError('required') && email?.touched) || (email?.hasError('email') && email?.dirty) || (formSubmitted && !email?.value)" class="text-danger">
+                                    Email is required & must be a valid email
+                                </span>
+                                <div class="form-grp">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="email" formControlName="email">
+                                </div>
+
+                                <span *ngIf="(password?.hasError('required') && (password?.touched || formSubmitted))"
+                                    class="text-danger">
+                                    Password is required
+                                </span>
+                                <span *ngIf="(password?.hasError('minlength') && (password?.touched || formSubmitted))"
+                                    class="text-danger">
+                                    Password must be at least 6 characters
+                                </span>
+                                <div class="form-grp">
+                                    <label for="password">Password</label>
+                                    <input type="password" id="password" placeholder="password" formControlName="password">
+                                </div>
+
+                                <div *ngIf="conpassword?.hasError('passwordMismatch') && (conpassword?.touched || formSubmitted)" class="text-danger">
+                                    Passwords do not match
+                                </div>
+                                  
+                                <div class="form-grp">
+                                    <label for="confirm-password">Confirm Password</label>
+                                    <input type="password" id="confirm-password" placeholder="Confirm Password" formControlName="conpassword">
+                                </div>
+                                <button type="submit" class="btn btn-two arrow-btn">Sign Up</button>
+                            </form>
+                            <div class="account__switch">
+                                <p>Already have an account?<a routerLink="/login">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- register-area-end -->
+
+    </main>
+
+    <!-- footer area start -->
+    <app-footer-one />
+    <!-- footer area end -->
+</div>
