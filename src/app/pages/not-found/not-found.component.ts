@@ -13,7 +13,7 @@ import { FooterOneComponent } from '../../shared/layout/footer/footer-one/footer
     FooterOneComponent,
   ],
   templateUrl: './not-found.component.html',
-  styleUrl: './not-found.component.scss'
+  styleUrl: './not-found.css'
 })
 export class NotFoundComponent {
 
