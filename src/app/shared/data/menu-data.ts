@@ -19,11 +19,11 @@ const menu_data:IMenuDataType[] = [
     title:'',
     link:'',
     sub_menu:[
-      {title:'Home One',link:'/home/home-one'},
-      {title:'Home Two',link:'/home/home-two'},
-      {title:'Home Three',link:'/home/home-three'},
-      {title:'Home Four',link:'/home/home-four'},
-      {title:'Home Five',link:'/home/home-five'},
+      {title:''},
+      {title:''},
+      {title:''},
+      {title:''},
+      {title:''},
     ]
   },
   {
@@ -42,35 +42,35 @@ const menu_data:IMenuDataType[] = [
   },
   {
     id:4,
-    title:'PAGES',
+    title:'',
     link:'#',
     sub_menu:[
-      {title:'Gaming Shop',link:'/shop'},
-      {title:'Shop Details',link:'/shop-details/1'},
-      {title:'Cart',link:'/cart'},
-      {title:'Checkout',link:'/checkout'},
-      {title:'Our Services',link:'/services'},
-      {title:'Services Details',link:'/service-details'},
-      {title:'Player Details',link:'/team-details/1'},
-      {title:'Login',link:'/login'},
-      {title:'Register',link:'/register'},
-      {title:'Reset Password',link:'/reset-password'},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
+      {title:'',link:''},
       {title:'404 Page',link:'/not-found'},
     ]
   },
   {
     id:5,
-    title:'News',
-    link:'#',
+    title:'',
+    link:'',
     sub_menu:[
-      {title:'Our Blog',link:'/blog'},
-      {title:'Blog Details',link:'/blog-details/1'}
+      {title:'',link:''},
+      {title:'',link:''}
     ]
   },
   {
     id:6,
-    title:'CONTACT',
-    link:'/contact',
+    title:'',
+    link:'',
   },
 ]
 
