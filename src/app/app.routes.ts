@@ -28,9 +28,7 @@ export const routes: Routes = [
         
     ]},
     
-    {path:'tournament-details',component:TournamentDetailsComponent,title:"Tournament Single - Mykd"},
-    {path:'services',component:ServicesComponent,title:"Services - Mykd"},
-    {path:'service-details',component:ServiceDetailsComponent,title:"Services Single - Mykd"},
+    
     {path:'team-details/:id',component:TeamDetailsComponent,title:"Team Single - Mykd"},
     
     {path:'register',component:RegisterComponent,title:"Register - Mykd"},
