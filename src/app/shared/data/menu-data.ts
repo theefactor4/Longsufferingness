@@ -28,8 +28,8 @@ const menu_data:IMenuDataType[] = [
   },
   {
     id:2,
-    title:'ABOUT US',
-    link:'/about',
+    title:'',
+    link:'',
   },
   {
     id:3,
