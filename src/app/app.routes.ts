@@ -42,6 +42,6 @@ export const routes: Routes = [
     {path:'about',component:AboutComponent,title:"About - Mykd"},
     {path:'blog',component:BlogComponent,title:"Blog - Mykd"},
     {path:'blog-details/:id',component:BlogDetailsComponent,title:'Blog Details - Mykd'},
-    {path:'contact',component:ContactComponent,title:"Contact - Mykd"},
+    
     {path:'**',component:NotFoundComponent,title:"404 - Mykd"},
 ];
