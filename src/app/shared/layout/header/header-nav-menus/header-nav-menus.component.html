@@ -3,7 +3,7 @@
       <li
         *ngFor="let menu of menuData"
         [ngClass]="{
-          'menu-item-has-children': menu.sub_menu,
+          '': menu.sub_menu,
           'active': isMenuActive(menu)
         }"
       >
