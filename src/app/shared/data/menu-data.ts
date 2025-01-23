@@ -27,9 +27,7 @@ const menu_data:IMenuDataType[] = [
     ]
   },
   {
-    id:2,
-    title:'ABOUT US',
-    link:'/about',
+    
   },
   {
     id:3,
