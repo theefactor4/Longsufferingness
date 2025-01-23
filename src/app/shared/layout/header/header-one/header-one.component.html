@@ -17,7 +17,11 @@
                         <!-- nav menus -->
                         <app-header-nav-menus [ngStyle]="{'margin': '0 auto'}" />
                         <!-- nav menus -->
-                     
+                     <div class="tgmenu__action d-none d-md-block">
+                        <ul class="list-wrap">
+                           <li class="search">
+                              <a class="pointer" (click)="handleOpenSearch('/assets/audio/click.wav')">
+                                 <i class="flaticon-search-1"></i>
                               </a>
                            </li>
                            <li class="header-btn">
