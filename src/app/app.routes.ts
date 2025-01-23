@@ -29,17 +29,7 @@ export const routes: Routes = [
     ]},
     
     
-    {path:'team-details/:id',component:TeamDetailsComponent,title:"Team Single - Mykd"},
     
-    {path:'register',component:RegisterComponent,title:"Register - Mykd"},
-    
-    {path:'cart',component:CartComponent,title:"Cart - Mykd"},
-    {path:'checkout',component:CheckoutComponent,title:"Checkout - Mykd"},
-    {path:'shop-details/:id',component:ShopDetailsComponent,title:"Shop Single - Mykd"},
-    {path:'reset-password',component:ResetPasswordComponent,title:"Reset Password - Mykd"},
-    {path:'about',component:AboutComponent,title:"About - Mykd"},
-    {path:'blog',component:BlogComponent,title:"Blog - Mykd"},
-    {path:'blog-details/:id',component:BlogDetailsComponent,title:'Blog Details - Mykd'},
     
     {path:'**',component:NotFoundComponent,title:"404 - Mykd"},
 ];
