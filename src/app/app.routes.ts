@@ -27,7 +27,7 @@ export const routes: Routes = [
     {path:'home',children:[
         
     ]},
-    {path:'tournament',component:TournamentComponent,title:"Tournament - Mykd"},
+    
     {path:'tournament-details',component:TournamentDetailsComponent,title:"Tournament Single - Mykd"},
     {path:'services',component:ServicesComponent,title:"Services - Mykd"},
     {path:'service-details',component:ServiceDetailsComponent,title:"Services Single - Mykd"},
