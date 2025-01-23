@@ -16,8 +16,8 @@ type IMenuDataType = {
 const menu_data:IMenuDataType[] = [
   {
     id:1,
-    title:'Home',
-    link:'#',
+    title:'',
+    link:'',
     sub_menu:[
       {title:'Home One',link:'/home/home-one'},
       {title:'Home Two',link:'/home/home-two'},
@@ -33,11 +33,11 @@ const menu_data:IMenuDataType[] = [
   },
   {
     id:3,
-    title:'TOURNAMENT',
-    link:'#',
+    title:'',
+    link:'',
     sub_menu:[
-      {title:'TOURNAMENT',link:'/tournament'},
-      {title:'TOURNAMENT Single',link:'/tournament-details'},
+      {title:'',link:''},
+      {title:'',link:''},
     ]
   },
   {
