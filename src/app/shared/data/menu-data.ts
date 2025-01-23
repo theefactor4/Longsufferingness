@@ -9,7 +9,7 @@ type IMenuDataType = {
   link: string;
   sub_menu?: {
       title: string;
-      link: string;
+
   }[];
 }
 
