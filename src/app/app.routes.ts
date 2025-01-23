@@ -32,9 +32,9 @@ export const routes: Routes = [
     {path:'services',component:ServicesComponent,title:"Services - Mykd"},
     {path:'service-details',component:ServiceDetailsComponent,title:"Services Single - Mykd"},
     {path:'team-details/:id',component:TeamDetailsComponent,title:"Team Single - Mykd"},
-    {path:'login',component:LoginComponent,title:"Login - Mykd"},
+    
     {path:'register',component:RegisterComponent,title:"Register - Mykd"},
-    {path:'shop',component:ShopComponent,title:"Shop - Mykd"},
+    
     {path:'cart',component:CartComponent,title:"Cart - Mykd"},
     {path:'checkout',component:CheckoutComponent,title:"Checkout - Mykd"},
     {path:'shop-details/:id',component:ShopDetailsComponent,title:"Shop Single - Mykd"},
